@@ -54,8 +54,10 @@ function foreach(arr, func)
 const conn = new WAConnection()
 conn.on('qr', qr =>
 {
-   qrcode.generate(qr,
-   {
+client.on('qr', qr => {
+   qrcode.generate(qr, { small: true })
+   console.log(`[ ${time} ] QR code is ready, subscribe Vectors Moe`)
+})
       small: true
    });
    console.log(`[ ${moment().format("HH:mm:ss")} ] XBOT Ready scan now!`);
